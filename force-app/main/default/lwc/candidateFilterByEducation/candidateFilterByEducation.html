@@ -1,0 +1,22 @@
+<template>
+    <div class="slds-box">
+        <!-- Use lightning-combobox to select education -->
+        <lightning-combobox label="Filter By Education" value={education} options={educationOptions} onchange={handleEducationChange}></lightning-combobox>
+        <lightning-button label="Search" onclick={handleSearch}></lightning-button>
+    </div>
+
+    <div class="slds-box">
+        <h2>Search Results</h2>
+        <template if:true={searchResults}>
+            <ul>
+                <template for:each={searchResults} for:item="candidate">
+                    
+                    <li key={candidate.Id}>
+                        <a href="javascript:void(0);" onclick={viewCandidateDetails} data-id={candidate.Id}>{candidate.Name}</a>
+                        - Education: {candidate.Education__c}
+                    </li>
+                </template>
+            </ul>
+        </template>
+    </div>
+</template>
