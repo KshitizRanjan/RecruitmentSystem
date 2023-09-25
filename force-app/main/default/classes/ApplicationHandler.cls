@@ -49,7 +49,7 @@ public class ApplicationHandler {
                 Id positionId = newApp.Position__c;
                 if (existingApplicationsByPosition.containsKey(positionId)) {
                     
-                    newApp.addError('You have already applied for this position. ' 
+                    newApp.addError('You have already applied for this position.' 
                                  );
                 }
             }
