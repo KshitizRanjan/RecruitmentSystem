@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Candidate__c</columns>
+    <columns>Position__c</columns>
+    <columns>Status__c</columns>
+    <columns>Review__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Pending,Approved</value>
+    </filters>
+    <label>All</label>
+</ListView>
