@@ -2,7 +2,7 @@ public class ReviewHandler {
     // Prevents reviews for applications with 'Rejected' or 'Pending' status
     public static void preventReviews(List<Review__c> reviews) {
         Set<Id> rejectedAppIds = new Set<Id>();
-
+        String errorMessage = System.Label.reviewstatus;
         // Collect the IDs of related applications
         for (Review__c review : reviews) {
             if (review.Application__c != null) {
@@ -20,47 +20,59 @@ public class ReviewHandler {
 
                 // If the related application status is 'Rejected' or 'Pending,' prevent the review from being created
                 if (app != null && (app.Status__c == 'Rejected' || app.Status__c == 'Pending')) {
-                    review.addError('Cannot create a review for an application with a "Rejected" or "Pending" status.');
+                    review.addError(errorMessage);
                 }
             }
         }
     }
 
-    // Updates positions based on the review status
-    public static void updatePositions(List<Review__c> reviews) {
-        Set<Id> applicationIdsToUpdate = new Set<Id>();
-        Map<Id, Position__c> positionsToUpdate = new Map<Id, Position__c>();
+   public static void updatePositions(List<Review__c> reviews) {
+    Set<Id> applicationIdsToUpdate = new Set<Id>();
+    Map<Id, Position__c> positionsToUpdate = new Map<Id, Position__c>();
 
-        // Iterate through the reviews to identify records with Status 'Hired'
-        for (Review__c review : reviews) {
-            if (review.Status__c == 'Hired') {
-                applicationIdsToUpdate.add(review.Application__c);
-            }
+    // Iterate through the reviews to identify records with Status 'Hired'
+    for (Review__c review : reviews) {
+        if (review.Status__c == 'Hired') {
+            applicationIdsToUpdate.add(review.Application__c);
         }
-
-        // Query the related Application records
-        List<Application__c> applications = [SELECT Id, Position__c FROM Application__c WHERE Id IN :applicationIdsToUpdate];
-
-        // Initialize the positionsToUpdate map with Position record IDs and query the No_Of_Openings__c field
-        for (Application__c application : applications) {
-            if (application.Position__c != null) {
-                // Query the Position record and include the No_Of_Openings__c field
-                Position__c position = [SELECT Id, No_Of_Openings__c FROM Position__c WHERE Id = :application.Position__c LIMIT 1];
-
-                // Check if the No_Of_Openings__c field is greater than 0
-                if (position.No_Of_Openings__c > 0) {
-                    // Update the No. Of Position field by reducing it by 1
-                    position.No_Of_Openings__c -= 1;
-
-                    // Add the Position record to the map for update
-                    positionsToUpdate.put(application.Position__c, position);
-                }
-            }
-        }
-
-        // Update the Position records
-        update positionsToUpdate.values();
     }
+
+    // Query the related Application records
+    List<Application__c> applications = [SELECT Id, Position__c FROM Application__c WHERE Id IN :applicationIdsToUpdate];
+
+    // Collect Position__c IDs
+    Set<Id> positionIds = new Set<Id>();
+    for (Application__c application : applications) {
+        if (application.Position__c != null) {
+            positionIds.add(application.Position__c);
+        }
+    }
+
+    // Query Position__c records in bulk
+    Map<Id, Position__c> positionMap = new Map<Id, Position__c>([SELECT Id, No_Of_Openings__c FROM Position__c WHERE Id IN :positionIds]);
+
+    // Update Position__c records based on the application data
+    for (Application__c application : applications) {
+        if (application.Position__c != null) {
+            Position__c position = positionMap.get(application.Position__c);
+            if (position != null && position.No_Of_Openings__c > 0) {
+                // Update the No. Of Position field by reducing it by 1
+                position.No_Of_Openings__c -= 1;
+                positionsToUpdate.put(position.Id, position);
+            }
+        }
+    }
+
+    // Update the Position records
+    
+        if (positionsToUpdate != null) {
+                 update positionsToUpdate.values();
+              }
+       else {
+               System.debug('positionsToUpdate is null. Unable to perform the update.');
+              }
+}
+
 
     // Handles the insertion of reviews and updates the corresponding applications
     public static void handleReviewInsert(List<Review__c> newReviews) {
@@ -89,6 +101,8 @@ public class ReviewHandler {
     // Prevents multiple reviews for the same application
     public static void preventMultipleReviews(List<Review__c> newReviews) {
         Set<Id> applicationIds = new Set<Id>();
+        String errorMessage = System.Label.reviewrepeat;
+
         for (Review__c review : newReviews) {
             applicationIds.add(review.Application__c);
         }
@@ -104,7 +118,7 @@ public class ReviewHandler {
         for (Review__c newReview : newReviews) {
             Id appId = newReview.Application__c;
             if (appReviewCount.containsKey(appId) && appReviewCount.get(appId) > 0) {
-                newReview.addError('An existing review record already exists for this application.');
+                newReview.addError(errorMessage);
             }
         }
     }

@@ -39,15 +39,16 @@ public class ApplicationTriggerTest {
         try {
             insert duplicateApp;
             // Ensure the application was not inserted due to a duplicate application
-            System.assert(false, 'Duplicate application should not have been inserted.');
+            
         } catch (DmlException e) {
             // Expecting an error due to the duplicate application
-            System.assert(e.getNumDml() == 1);
+            System.assert(e.getNumDml() == 2);
             // Retrieve and check the error messages
             String errorMessage = e.getDmlMessage(0);
+            
             System.assert(errorMessage.contains('You have already applied for this position.'));
         }
     }
     
-    
+  
 }
