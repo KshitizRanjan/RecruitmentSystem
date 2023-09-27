@@ -3,6 +3,7 @@ public class PositionValidationTest {
 
     @isTest
     static void testValidationRule() {
+        System.runAs(runTestAsUser()){
         // Create a new Position record
         Position__c position = new Position__c();
         position.Name = 'Test Position';
@@ -19,5 +20,38 @@ public class PositionValidationTest {
             // Check if the error message contains the expected validation rule error
             System.assert(e.getMessage().contains('Minimum Pay Should not be greater than Maximum Pay'));
         }
+        }
+    }
+      // Helper method to set up the user context and run test methods
+    private static user runTestAsUser() {
+        Profile profile = [SELECT Id FROM Profile WHERE Name = 'Interview Parties 2'];  
+
+       
+        // Assuming 'YourPermissionSetName' is the API name of the permission set you want to assign
+        PermissionSet permSet = [SELECT Id FROM PermissionSet WHERE Name = 'Candidate_2'];
+
+        User testUser = new User(
+            Alias = 'testUser',
+            Email = 'testuser@example.com',
+            EmailEncodingKey = 'UTF-8',
+            LastName = 'Testing',
+            LanguageLocaleKey = 'en_US',
+            LocaleSidKey = 'en_US',
+            ProfileId = profile.Id,
+            TimeZoneSidKey = 'America/Los_Angeles',
+            UserName = 'kshitiz@gupta.com'
+        );
+
+        insert testUser;
+        // Assign the permission set to the user
+        PermissionSetAssignment psa = new PermissionSetAssignment(
+            PermissionSetId = permSet.Id,
+            AssigneeId = testUser.Id
+        );
+        insert psa;
+
+       return testUser;
+
+        
     }
 }
