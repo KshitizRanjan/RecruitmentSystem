@@ -24,7 +24,7 @@ public class ApplicationHandler {
         // Check if a new application is for a closed position and add an error if true
         for (Application__c app : newApplications) {
             if (app.Position__c != null && positionStatusMap.containsKey(app.Position__c) && positionStatusMap.get(app.Position__c) == 'Closed') {
-                app.addError('Cannot create an application for a closed position.');
+                app.addError(System.label.appstatus);
             }
         }
     }
@@ -52,7 +52,7 @@ public class ApplicationHandler {
             if (newApp.Position__c != null) {
                 Id positionId = newApp.Position__c;
                 if (existingApplicationsByPosition.containsKey(positionId)) {
-                    newApp.addError('You have already applied for this position.');
+                    newApp.addError(System.label.apprepeat);
                 }
             }
         }

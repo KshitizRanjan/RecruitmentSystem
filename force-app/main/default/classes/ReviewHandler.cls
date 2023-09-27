@@ -26,13 +26,13 @@ public class ReviewHandler {
         }
     }
 
-   public static void updatePositions(List<Review__c> reviews) {
+   public static void updatePositions(List<Review__c> reviews,Map<review__c,string> statusMap)  {
     Set<Id> applicationIdsToUpdate = new Set<Id>();
     Map<Id, Position__c> positionsToUpdate = new Map<Id, Position__c>();
 
     // Iterate through the reviews to identify records with Status 'Hired'
     for (Review__c review : reviews) {
-        if (review.Status__c == 'Hired') {
+        if (statusMap.get(review)!=review.Status__c && review.Status__c == 'Hired') {
             applicationIdsToUpdate.add(review.Application__c);
         }
     }

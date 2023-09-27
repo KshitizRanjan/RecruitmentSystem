@@ -1,0 +1,10 @@
+<aura:component implements="lightning:actionOverride,flexipage:availableForAllPageTypes">
+    <!-- Define the custom "New" button/link -->
+    <aura:html tag="a" onclick="{!c.navigateToCustomNew}">
+        <lightning:icon iconName="utility:new" size="small" class="slds-m-right_small"/>
+        New Custom Record
+    </aura:html>
+
+    <!-- Include the LWC for creating the record -->
+    <c:customNewRecord />
+</aura:component>
