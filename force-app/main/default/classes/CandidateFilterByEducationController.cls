@@ -4,10 +4,7 @@ public with sharing class CandidateFilterByEducationController {
         String query = 'SELECT Id, Name, Education__c FROM Candidate__c WHERE';
         if (!String.isEmpty(education)) {
             query += ' Education__c = \'' + education + '\'';
-        } else {
-            // Return an empty list if no education criteria is provided
-            return new List<Candidate__c>();
-        }
+        } 
 
         return Database.query(query);
     }

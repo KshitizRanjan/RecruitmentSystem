@@ -39,8 +39,9 @@ public class ReviewHandlerTest {
         {
             Position__c position=new Position__c(Name='Test Position',Close_Date__c=System.today()-1);
             insert position;
+            String currentUser=[Select id from user where Username=: UserInfo.getUserName()].id;
             
-            Candidate__c cand=new Candidate__c(Name='JUng',Email__c='Test@usermail.com');
+            Candidate__c cand=new Candidate__c(Name='Jung',Email__c='Test@usermail.com',user__c=currentUser);
             Insert cand;
             // Create a sample application
             Application__c application = new Application__c(Position__c=position.Id,Candidate__c=cand.Id,status__c='Approved');
@@ -111,8 +112,8 @@ public class ReviewHandlerTest {
             
             Position__c position=new Position__c(Name='Test Position',Close_Date__c=System.today()-1);
             insert position;
-            
-            Candidate__c cand=new Candidate__c(Name='JUng',Email__c='Test@usermail.com');
+            String currentUser=[Select id from user where Username=: UserInfo.getUserName()].id;
+            Candidate__c cand=new Candidate__c(Name='Jung',Email__c='Test@usermail.com',user__c=currentUser);
             Insert cand;
             
             // Create a sample application

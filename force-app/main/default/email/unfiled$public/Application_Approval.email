@@ -1,0 +1,3 @@
+Hi! {!Application__c.Candidate__c}
+
+Congratulations!!! Your Application for Position  '{!Application__c.Position__c}'  has been approved.
