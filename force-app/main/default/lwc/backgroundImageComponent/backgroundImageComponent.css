@@ -1,0 +1,16 @@
+.background-container {
+    /* Set the background image using the URL from your static resource */
+    background-image: url('https://c1.wallpaperflare.com/preview/537/431/764/setting-hand-leave-job.jpg');
+    background-size: cover; /* Adjust the image size to cover the container */
+    background-repeat: no-repeat;
+   /* background-attachment: fixed; /* Optional: Fix the background image */
+    height: 60vh; /* Adjust the height as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff; /* Optional: Set text color for better visibility */
+    font-size: 24px; /* Optional: Set font size for text */
+    background-position: center; /* Center the background image horizontally and vertically */
+}

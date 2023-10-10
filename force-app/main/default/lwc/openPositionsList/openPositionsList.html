@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Open Positions">
+        <lightning-datatable
+            key-field="Id"
+            data={positionData}
+            columns={columns}
+            onrowselection={handleRowClick}
+            hide-checkbox-column="true"
+            onsort={handleSortData}
+            sorted-by={sortedBy}
+            sorted-direction={sortedDirection}
+        >
+        </lightning-datatable>
+    </lightning-card>
+</template>

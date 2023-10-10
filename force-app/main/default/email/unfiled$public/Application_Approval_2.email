@@ -1,0 +1,5 @@
+<messaging:emailTemplate subject="Approval Mail" recipientType="User" relatedToType="Application__c">
+<messaging:plainTextEmailBody >
+Your application has been approved.
+</messaging:plainTextEmailBody>
+</messaging:emailTemplate>

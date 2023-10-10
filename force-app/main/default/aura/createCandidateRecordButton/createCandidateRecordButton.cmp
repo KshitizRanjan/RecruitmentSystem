@@ -1,0 +1,4 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName,lightning:actionOverride" access="global" >
+     <c:dynamicHeading label="New Candidate"></c:dynamicHeading>
+    <c:createCandidateRecord onrecordchange="{!c.Refresh}" />
+</aura:component>

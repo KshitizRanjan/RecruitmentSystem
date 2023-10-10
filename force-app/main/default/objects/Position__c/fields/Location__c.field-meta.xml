@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Location__c</fullName>
+    <externalId>false</externalId>
+    <label>Location</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Noida, UP</fullName>
+                <default>true</default>
+                <label>Noida, UP</label>
+            </value>
+            <value>
+                <fullName>Bangalore, Karnataka</fullName>
+                <default>false</default>
+                <label>Bangalore, Karnataka</label>
+            </value>
+            <value>
+                <fullName>Gurgaon, Haryana</fullName>
+                <default>false</default>
+                <label>Gurgaon, Haryana</label>
+            </value>
+            <value>
+                <fullName>Chennai, Tamilnadu</fullName>
+                <default>false</default>
+                <label>Chennai, Tamilnadu</label>
+            </value>
+            <value>
+                <fullName>Kathmandu, Nepal</fullName>
+                <default>false</default>
+                <label>Kathmandu, Nepal</label>
+            </value>
+            <value>
+                <fullName>Tampa Bay , Florida , USA</fullName>
+                <default>false</default>
+                <label>Tampa Bay , Florida , USA</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

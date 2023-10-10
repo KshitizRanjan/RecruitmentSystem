@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <environments>Default</environments>
+    <interviewLabel>Create Position Record {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>New Position</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>Create_Position_Record</name>
+        <label>Create Position Record</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <inputAssignments>
+            <field>Close_Date__c</field>
+            <value>
+                <elementReference>Close_Date</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>Position_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>No_of_Openings__c</field>
+            <value>
+                <elementReference>No_Of_Openings</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Skills_Required__c</field>
+            <value>
+                <elementReference>Skills_Required</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Position__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <screens>
+        <name>Position_Screen</name>
+        <label>Position Screen</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Create_Position_Record</targetReference>
+        </connector>
+        <fields>
+            <name>Position_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Position Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Skills_Required</name>
+            <fieldText>Skills Required</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Close_Date</name>
+            <dataType>Date</dataType>
+            <fieldText>Close Date</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>No_Of_Openings</name>
+            <dataType>Number</dataType>
+            <fieldText>No. Of Openings</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <scale>0</scale>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Position_Screen</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+</Flow>

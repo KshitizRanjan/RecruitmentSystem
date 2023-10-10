@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>apprepeat</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>apprepeat</shortDescription>
+        <value>You have already applied for this position.</value>
+    </labels>
+    <labels>
+        <fullName>appstatus</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>appstatus</shortDescription>
+        <value>Cannot create an application for a closed position.</value>
+    </labels>
+    <labels>
+        <fullName>reviewrepeat</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>reviewrepeat</shortDescription>
+        <value>An existing review record already exists for this application.</value>
+    </labels>
+    <labels>
+        <fullName>reviewstatus</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>reviewstatus</shortDescription>
+        <value>Cannot create a review for an application with a &quot;Rejected&quot; or &quot;Pending&quot; status.</value>
+    </labels>
+</CustomLabels>
