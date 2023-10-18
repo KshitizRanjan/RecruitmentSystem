@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>CQ_AS_Lab_Title__c</fullName>
+    <fullName>CQ_KR_Child__c</fullName>
     <externalId>false</externalId>
-    <label>Lab Title</label>
+    <label>Child?</label>
     <required>false</required>
     <trackTrending>false</trackTrending>
     <type>Picklist</type>
@@ -11,19 +11,14 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Physics Lab</fullName>
+                <fullName>Yes</fullName>
                 <default>false</default>
-                <label>Physics Lab</label>
+                <label>Yes</label>
             </value>
             <value>
-                <fullName>Chemistry Lab</fullName>
+                <fullName>No</fullName>
                 <default>false</default>
-                <label>Chemistry Lab</label>
-            </value>
-            <value>
-                <fullName>Biology Lab</fullName>
-                <default>false</default>
-                <label>Biology Lab</label>
+                <label>No</label>
             </value>
         </valueSetDefinition>
     </valueSet>

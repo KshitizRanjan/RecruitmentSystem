@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>CQ_AS_Course_Status__c</fullName>
+    <fullName>CQ_KR_Training_Status__c</fullName>
     <externalId>false</externalId>
-    <label>Course Status</label>
+    <label>Training Status</label>
     <required>false</required>
     <trackTrending>false</trackTrending>
     <type>Picklist</type>
@@ -16,9 +16,9 @@
                 <label>Draft</label>
             </value>
             <value>
-                <fullName>In Progress</fullName>
+                <fullName>In progress</fullName>
                 <default>false</default>
-                <label>In Progress</label>
+                <label>In progress</label>
             </value>
             <value>
                 <fullName>Completed</fullName>

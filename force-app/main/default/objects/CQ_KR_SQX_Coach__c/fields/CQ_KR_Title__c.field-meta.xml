@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>CQ_AS_Child_Record__c</fullName>
+    <fullName>CQ_KR_Title__c</fullName>
     <externalId>false</externalId>
-    <label>Child_Record</label>
+    <label>Title</label>
     <required>false</required>
     <trackTrending>false</trackTrending>
     <type>Picklist</type>
@@ -11,14 +11,14 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Yes</fullName>
+                <fullName>Senior Coach</fullName>
                 <default>false</default>
-                <label>Yes</label>
+                <label>Senior Coach</label>
             </value>
             <value>
-                <fullName>No</fullName>
+                <fullName>Assistant Coach</fullName>
                 <default>false</default>
-                <label>No</label>
+                <label>Assistant Coach</label>
             </value>
         </valueSetDefinition>
     </valueSet>

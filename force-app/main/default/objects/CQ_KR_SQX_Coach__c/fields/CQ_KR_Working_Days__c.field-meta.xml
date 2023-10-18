@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Subjects_Taught__c</fullName>
+    <fullName>CQ_KR_Working_Days__c</fullName>
     <externalId>false</externalId>
-    <label>Subjects Taught</label>
+    <label>Working Days</label>
     <required>false</required>
     <trackTrending>false</trackTrending>
     <type>MultiselectPicklist</type>
@@ -11,34 +11,29 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>English</fullName>
+                <fullName>Monday</fullName>
                 <default>false</default>
-                <label>English</label>
+                <label>Monday</label>
             </value>
             <value>
-                <fullName>Social Science</fullName>
+                <fullName>Tuesday</fullName>
                 <default>false</default>
-                <label>Social Science</label>
+                <label>Tuesday</label>
             </value>
             <value>
-                <fullName>Maths</fullName>
+                <fullName>Wednesday</fullName>
                 <default>false</default>
-                <label>Maths</label>
+                <label>Wednesday</label>
             </value>
             <value>
-                <fullName>Physics</fullName>
+                <fullName>Thursday</fullName>
                 <default>false</default>
-                <label>Physics</label>
+                <label>Thursday</label>
             </value>
             <value>
-                <fullName>Chemistry</fullName>
+                <fullName>Friday</fullName>
                 <default>false</default>
-                <label>Chemistry</label>
-            </value>
-            <value>
-                <fullName>Sports</fullName>
-                <default>false</default>
-                <label>Sports</label>
+                <label>Friday</label>
             </value>
         </valueSetDefinition>
     </valueSet>

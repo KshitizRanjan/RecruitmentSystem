@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>StartDateMustBeLesserThanCompletionDate</fullName>
+    <active>true</active>
+    <errorConditionFormula>CQ_KR_Training_Start_Date__c  &gt;  CQ_KR_Training_Completion_Date__c</errorConditionFormula>
+    <errorMessage>Should be less than completion date</errorMessage>
+</ValidationRule>
