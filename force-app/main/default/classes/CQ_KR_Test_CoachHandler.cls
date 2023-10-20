@@ -1,8 +1,11 @@
 @isTest
 private class CQ_KR_Test_CoachHandler {
     
+    Private static user testuser;
+    
     // Helper method to create a user with a specific permission set
-    private static User createUserWithPermissionSet() {
+    @testSetup
+    static void createUserWithPermissionSet() {
         // Retrieve the desired permission set by name
         PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name = 'CQ_KR_Common_Permission_Set' LIMIT 1];
         
@@ -10,7 +13,7 @@ private class CQ_KR_Test_CoachHandler {
         Profile p = [SELECT Id FROM Profile WHERE Name = 'Standard User' LIMIT 1]; 
         
         // Create a new user with specified attributes
-        User u = new User(
+        testUser = new User(
             ProfileId = p.Id,
             Alias = 'standt',
             Email = 'standarduser@testorg.com',
@@ -23,28 +26,29 @@ private class CQ_KR_Test_CoachHandler {
         );
         
         // Insert the user and assign the permission set
-        insert u;
+        insert testUser;
         PermissionSetAssignment psa = new PermissionSetAssignment(
-            AssigneeId = u.Id,
+            AssigneeId = testUser.Id,
             PermissionSetId = ps.Id
         );
         insert psa;
         
-        return u;  // Return the created user
+        
     }
     
     @isTest static void givenCoach_WhenUpdate_ThenAssertError() {
         // Run the test as the user with the specified permission set
-        System.runAs(createUserWithPermissionSet()) {
+        user test=[select id , username from user where UserName = 'standarduser@testo1rg.com' LIMIT 1];
+        System.runAs(test) {
             // 1. Insert a coach record with 'In progress' status
             CQ_KR_SQX_Coach__c testCoach = new CQ_KR_SQX_Coach__c(CQ_KR_Training_Status__c = 'In progress');
             insert testCoach;
             
             // 2. Try updating the coach's training status to 'Completed' without an associated player having a non-empty resume
-            Test.startTest();
+            
             testCoach.CQ_KR_Training_Status__c = 'Completed';
             Database.SaveResult result = Database.update(testCoach, false);
-            Test.stopTest();
+            
             System.assert(!result.isSuccess(), 'Expected error when updating the coach status to Completed without any player having a non-empty resume');
             
             // Insert a player associated with the coach and with a non-empty resume

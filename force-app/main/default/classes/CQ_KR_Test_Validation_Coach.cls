@@ -1,9 +1,10 @@
 @isTest
 private class CQ_KR_Test_Validation_Coach {
-    
+    Private static user testuser;
     
     // Helper method to create a user with a specific permission set
-    private static User createUserWithPermissionSet() {
+    @testSetup
+    static void createUserWithPermissionSet() {
         // Retrieve the desired permission set by name
         PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name = 'CQ_KR_Common_Permission_Set' LIMIT 1];
         
@@ -11,7 +12,7 @@ private class CQ_KR_Test_Validation_Coach {
         Profile p = [SELECT Id FROM Profile WHERE Name = 'Standard User' LIMIT 1]; 
         
         // Create a new user with specified attributes
-        User u = new User(
+         testUser = new User(
             ProfileId = p.Id,
             Alias = 'standt',
             Email = 'standarduser@testorg.com',
@@ -24,19 +25,20 @@ private class CQ_KR_Test_Validation_Coach {
         );
         
         // Insert the user and assign the permission set
-        insert u;
+        insert testUser;
         PermissionSetAssignment psa = new PermissionSetAssignment(
-            AssigneeId = u.Id,
+            AssigneeId = testUser.Id,
             PermissionSetId = ps.Id
         );
         insert psa;
         
-        return u;  // Return the created user
+          
     }
     
     // Test method to validate a custom date validation rule for Coach objects
     @isTest static void givenStartDate_WhenLessThanCompletionDate_ThenNotInsert() {
-        System.runAs(createUserWithPermissionSet()) {
+        user test=[select id , username from user where UserName = 'standarduser@testo1rg.com' LIMIT 1];
+        System.runAs(test) {
             // Create a test Coach record with an intentionally invalid date configuration
             CQ_KR_SQX_Coach__c testCoach = new CQ_KR_SQX_Coach__c(
                 Name = 'Test Restaurant',
@@ -45,9 +47,9 @@ private class CQ_KR_Test_Validation_Coach {
             );
             
             // Define an exception variable to capture the expected validation exception
-            Test.startTest();
+          
             Database.saveresult Result=Database.insert(testCoach,false);
-            Test.stopTest();
+          
             System.assert(!Result.isSuccess());
         }
     }
