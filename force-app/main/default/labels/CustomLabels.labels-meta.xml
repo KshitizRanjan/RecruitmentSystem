@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>CQAS_CUSTOM_LINKS</fullName>
+        <categories>CQ UI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CQUI Form</shortDescription>
+        <value>Custom Links</value>
+    </labels>
+    <labels>
+        <fullName>CQAS_EDIT_MULTIPLE</fullName>
+        <categories>CQ UI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CQUI Grid</shortDescription>
+        <value>Edit Multiple</value>
+    </labels>
+    <labels>
+        <fullName>CQAS_INFORMATION</fullName>
+        <categories>CQ UI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CQUI Form</shortDescription>
+        <value>Information</value>
+    </labels>
+    <labels>
+        <fullName>CQAS_NEW</fullName>
+        <categories>CQ UI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CQUI Grid</shortDescription>
+        <value>New</value>
+    </labels>
+    <labels>
+        <fullName>CQAS_SYSTEM_INFORMATION</fullName>
+        <categories>CQ UI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CQUI Form</shortDescription>
+        <value>System Information</value>
+    </labels>
+    <labels>
+        <fullName>CQAS_TEACHERS_INFO</fullName>
+        <categories>CQ UI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CQUI Grid</shortDescription>
+        <value>Teachers Info</value>
+    </labels>
+    <labels>
+        <fullName>CQKR_AGGFIELD</fullName>
+        <categories>CQ UI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CQUI Grid</shortDescription>
+        <value>AggField</value>
+    </labels>
+    <labels>
+        <fullName>CQKR_BULK_EDIT</fullName>
+        <categories>CQ UI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CQUI Grid</shortDescription>
+        <value>Bulk Edit</value>
+    </labels>
+    <labels>
+        <fullName>CQKR_COMBFIELD</fullName>
+        <categories>CQ UI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CQUI Grid</shortDescription>
+        <value>CombField</value>
+    </labels>
+    <labels>
+        <fullName>CQKR_CUSTOM_LINKS</fullName>
+        <categories>CQ UI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CQUI Form</shortDescription>
+        <value>Custom Links</value>
+    </labels>
+    <labels>
+        <fullName>CQKR_INFORMATION</fullName>
+        <categories>CQ UI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CQUI Form</shortDescription>
+        <value>Information</value>
+    </labels>
+    <labels>
+        <fullName>CQKR_NEW</fullName>
+        <categories>CQ UI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CQUI Grid</shortDescription>
+        <value>New</value>
+    </labels>
+    <labels>
+        <fullName>CQKR_SYSTEM_INFORMATION</fullName>
+        <categories>CQ UI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CQUI Form</shortDescription>
+        <value>System Information</value>
+    </labels>
+    <labels>
+        <fullName>CQ_KR_UI_Coach_Resume_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CoachResumeError</shortDescription>
+        <value>One resume of any player should be there for training to be completed!</value>
+    </labels>
+    <labels>
+        <fullName>CQ_KR_UI_Coach_Update_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CoachUpdateError</shortDescription>
+        <value>Updating not allowed when Training is already closed!</value>
+    </labels>
+    <labels>
+        <fullName>CQ_KR_UI_Player_Edit_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PlayerEditError</shortDescription>
+        <value>You cannot edit records as the training is completed or closed!</value>
+    </labels>
+    <labels>
+        <fullName>CQ_KR_UI_Player_Parent_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PlayerParentError</shortDescription>
+        <value>You cannot change the coach in the middle of editing!</value>
+    </labels>
+    <labels>
+        <fullName>Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error</shortDescription>
+        <value>There is error.</value>
+    </labels>
+</CustomLabels>
