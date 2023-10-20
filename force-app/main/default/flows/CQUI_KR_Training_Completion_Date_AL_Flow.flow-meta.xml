@@ -2,8 +2,8 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>58.0</apiVersion>
     <assignments>
-        <name>InRecord_setDate</name>
-        <label>InRecord=setDate</label>
+        <name>Assign_Date</name>
+        <label>Assign Date</label>
         <locationX>176</locationX>
         <locationY>134</locationY>
         <assignmentItems>
@@ -34,10 +34,10 @@
     <formulas>
         <name>setDate</name>
         <dataType>Date</dataType>
-        <expression>TODAY()+10</expression>
+        <expression>{!$Flow.CurrentDate}+10</expression>
     </formulas>
-    <interviewLabel>CQUI KR TargetCompletionDate AL Flow {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>CQUI KR TargetCompletionDate AL Flow</label>
+    <interviewLabel>Training Completion Date Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Training Completion Date AL Flow</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -61,7 +61,7 @@
         <locationX>50</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>InRecord_setDate</targetReference>
+            <targetReference>Assign_Date</targetReference>
         </connector>
     </start>
     <status>Active</status>
