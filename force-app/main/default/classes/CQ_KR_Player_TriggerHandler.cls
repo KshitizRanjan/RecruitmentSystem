@@ -20,12 +20,12 @@ public class CQ_KR_Player_TriggerHandler {
             
             // Prevent changing the coach in the middle
             if (oldPlayer.CQ_KR_SQX_Coach__c != player.CQ_KR_SQX_Coach__c) {
-                player.addError('You cannot change the coach in the middle of editing!');
+                player.addError(System.label.CQ_KR_UI_Player_Parent_Error);
             }
             
             // Prevent editing if the coach's training status is completed or closed
             if (coach.CQ_KR_Training_Status__c == 'Completed' || coach.CQ_KR_Training_Status__c == 'Closed') {
-                player.addError('You cannot edit records as the training is completed or closed!');
+                player.addError(System.label.CQ_KR_UI_Player_Edit_Error);
             }
         }
     }

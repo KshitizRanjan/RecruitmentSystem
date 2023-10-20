@@ -33,7 +33,7 @@ private class CQ_KR_Test_CoachHandler {
         return u;  // Return the created user
     }
     
-    @isTest static void test_handleBeforeUpdate() {
+    @isTest static void givenCoach_WhenUpdate_ThenAssertError() {
         // Run the test as the user with the specified permission set
         System.runAs(createUserWithPermissionSet()) {
             // 1. Insert a coach record with 'In progress' status

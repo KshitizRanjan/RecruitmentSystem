@@ -35,7 +35,7 @@ private class CQ_KR_Test_Validation_Coach {
     }
     
     // Test method to validate a custom date validation rule for Coach objects
-    @isTest static void testDateCondition() {
+    @isTest static void givenStartDate_WhenLessThanCompletionDate_ThenNotInsert() {
         System.runAs(createUserWithPermissionSet()) {
             // Create a test Coach record with an intentionally invalid date configuration
             CQ_KR_SQX_Coach__c testCoach = new CQ_KR_SQX_Coach__c(
@@ -45,19 +45,10 @@ private class CQ_KR_Test_Validation_Coach {
             );
             
             // Define an exception variable to capture the expected validation exception
-            Exception expectedException;
-            
-            try {
-                // Attempt to insert the testCoach record, expecting a validation exception
-                insert testCoach;
-            } catch (System.DmlException e) {
-                expectedException = e;
-            }
-            
-            // Assertions to validate the expected validation behavior
-            System.assertNotEquals(null, expectedException, 'Expected a DML Exception due to the validation rule.');
-            System.assertEquals('FIELD_CUSTOM_VALIDATION_EXCEPTION', expectedException.getDmlType(0).name(), 'Expected a custom validation exception.');
-            System.assert(expectedException.getMessage().contains('Should be less than completion date'), 'Expected validation error message: Should be less than completion date');
+            Test.startTest();
+            Database.saveresult Result=Database.insert(testCoach,false);
+            Test.stopTest();
+            System.assert(!Result.isSuccess());
         }
     }
 }

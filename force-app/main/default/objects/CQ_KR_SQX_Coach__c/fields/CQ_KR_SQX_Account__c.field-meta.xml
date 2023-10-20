@@ -20,7 +20,7 @@
     </lookupFilter>
     <referenceTo>Account</referenceTo>
     <relationshipLabel>Coaches</relationshipLabel>
-    <relationshipName>Coaches</relationshipName>
+    <relationshipName>CQ_KR_Coaches</relationshipName>
     <required>false</required>
     <trackTrending>false</trackTrending>
     <type>Lookup</type>

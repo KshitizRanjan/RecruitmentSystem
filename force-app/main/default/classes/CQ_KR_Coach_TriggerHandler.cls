@@ -19,7 +19,7 @@ public class CQ_KR_Coach_TriggerHandler {
             // Check if the training status is 'Closed'
             if (oldCoach.CQ_KR_Training_Status__c == 'Closed') {
                 // If yes, prevent updating and display an error
-                coach.CQ_KR_Training_Status__c.addError('Updating not allowed when Training is already closed!');
+                coach.CQ_KR_Training_Status__c.addError(System.label.CQ_KR_UI_Coach_Update_Error);
             }
         }
 
@@ -36,7 +36,7 @@ public class CQ_KR_Coach_TriggerHandler {
             for (CQ_KR_SQX_Coach__c coach : newCoaches) {
                 if (coach.CQ_KR_Training_Status__c == 'Completed' && coachToPlayersMap.get(coach.Id).isEmpty()) {
                     // If not, prevent updating and display an error
-                    coach.CQ_KR_Training_Status__c.addError('One resume of any player should be there for training to be completed!');
+                    coach.CQ_KR_Training_Status__c.addError(System.label.CQ_KR_UI_Coach_Resume_Error);
                 }
             }
         }

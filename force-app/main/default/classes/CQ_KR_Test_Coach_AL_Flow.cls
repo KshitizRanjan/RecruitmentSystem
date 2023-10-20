@@ -33,7 +33,7 @@ private class CQ_KR_Test_Coach_AL_Flow {
         return u;  // Return the created user
     }
     
-    @isTest static void testAutoLaunchedFlow() {
+    @isTest static void givenCoachRecord_WhenPopCompletionDate_ThenAssertTheDateValue() {
         // Run the test as the user with the specified permission set
         System.runAs(createUserWithPermissionSet()) {
             // 1. Insert a test record without the expected updates from the Flow

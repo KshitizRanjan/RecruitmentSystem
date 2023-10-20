@@ -33,7 +33,7 @@ public class CQ_KR_Test_PlayerHandler {
     }
     
     @isTest
-    static void testBeforeUpdate() {
+    static void givenCoach_WhenChangeCoach_ThenAssertError() {
         // Run the test as the user with the specified permission set
         System.runAs(createUserWithPermissionSet()) {
             // Insert a Coach record with 'In progress' status
@@ -57,12 +57,12 @@ public class CQ_KR_Test_PlayerHandler {
             // Assert that an error is thrown due to changing the parent when training status is Completed or Closed
             System.assert(!result.isSuccess());
             System.assert(result.getErrors().size() > 0);
-            System.assertEquals('Since the training is done you cannot edit these records!', result.getErrors()[0].getMessage());
+            System.assertEquals(System.label.CQ_KR_UI_Player_Edit_Error, result.getErrors()[0].getMessage());
         }
     }
     
     @isTest
-    static void testAfterMethod() {
+    static void givenCoach_WhenAlterPlayer_ThenAssertChildValue() {
         // Run the test as the user with the specified permission set
         System.runAs(createUserWithPermissionSet()) {
             // Insert a Coach record with 'In progress' status
